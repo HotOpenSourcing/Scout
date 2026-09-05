@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+import utils.net
+import utils.clients
+import utils.http_session
+import utils.transport
+import utils.session
 import sys
 import csv
 import time
@@ -1130,6 +1135,9 @@ def main():
 
         except KeyboardInterrupt:
             console.print("\n\n[yellow]Exiting...[/yellow]")
+            break
+        except EOFError:
+            console.print("\n[yellow]No more input, exiting.[/yellow]")
             break
         except Exception as e:
             console.print(f"\n[red]✗ Error: {e}[/red]")
